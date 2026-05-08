@@ -82,3 +82,59 @@ scrollTopBtn.addEventListener("click", () => {
   });
 
 });
+
+/* =========================
+   FILTROS GALERÍA
+========================= */
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+const galleryItems = document.querySelectorAll(".gallery-item");
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const filter = button.getAttribute("data-filter");
+
+    filterButtons.forEach((btn) => btn.classList.remove("active"));
+    button.classList.add("active");
+
+    galleryItems.forEach((item) => {
+      if (filter === "todos" || item.classList.contains(filter)) {
+        item.classList.remove("hide");
+      } else {
+        item.classList.add("hide");
+      }
+    });
+  });
+});
+
+/* =========================
+   MODAL GALERÍA
+========================= */
+
+const modal = document.getElementById("imageModal");
+const modalImage = document.getElementById("modalImage");
+const modalCaption = document.getElementById("modalCaption");
+const modalClose = document.querySelector(".modal-close");
+
+galleryItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    const img = item.querySelector("img");
+    const title = item.querySelector(".gallery-caption h3")?.textContent || img.alt;
+    const description = item.querySelector(".gallery-caption p")?.textContent || "";
+
+    modalImage.src = img.src;
+    modalImage.alt = img.alt;
+    modalCaption.innerHTML = `<strong>${title}</strong><br>${description}`;
+    modal.classList.add("show");
+  });
+});
+
+modalClose.addEventListener("click", () => {
+  modal.classList.remove("show");
+});
+
+modal.addEventListener("click", (event) => {
+  if (event.target === modal) {
+    modal.classList.remove("show");
+  }
+});

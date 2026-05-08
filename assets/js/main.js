@@ -31,3 +31,54 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+/* =========================
+   NAVBAR DINÁMICA
+========================= */
+
+const header = document.querySelector(".header");
+const logo = document.getElementById("main-logo");
+
+window.addEventListener("scroll", () => {
+
+  if (window.scrollY > 80) {
+
+    header.classList.add("scrolled");
+
+    logo.src = "assets/img/logos/LOGO SOLO AZUL.PNG";
+
+  } else {
+
+    header.classList.remove("scrolled");
+
+    logo.src = "assets/img/logos/LOGO COMPLETO AZUL.PNG";
+  }
+
+});
+
+/* =========================
+   BOTÓN VOLVER ARRIBA
+========================= */
+
+const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+window.addEventListener("scroll", () => {
+
+  if (window.scrollY > 400) {
+
+    scrollTopBtn.classList.add("show");
+
+  } else {
+
+    scrollTopBtn.classList.remove("show");
+  }
+
+});
+
+scrollTopBtn.addEventListener("click", () => {
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+});

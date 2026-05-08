@@ -468,3 +468,95 @@ body.light-mode p {
   color: #111827;
 }
 
+/* =========================
+   NAVBAR DINÁMICA
+========================= */
+
+.header {
+  transition: all 0.35s ease;
+}
+
+.navbar {
+  transition: all 0.35s ease;
+}
+
+.logo {
+  width: 210px;
+  transition: all 0.35s ease;
+}
+
+/* Navbar compacta al hacer scroll */
+
+.header.scrolled {
+  background: rgba(8, 17, 32, 0.96);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+}
+
+.header.scrolled .navbar {
+  padding: 5px 0;
+}
+
+.header.scrolled .logo {
+  width: 70px;
+}
+
+/* Light mode */
+
+body.light-mode .header.scrolled {
+  background: rgba(255,255,255,0.96);
+}
+
+/* =========================
+   BOTÓN SCROLL TOP
+========================= */
+
+.scroll-top-btn {
+
+  position: fixed;
+
+  bottom: 30px;
+  right: 30px;
+
+  width: 55px;
+  height: 55px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(31, 94, 255, 0.9);
+
+  color: white;
+
+  font-size: 24px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(20px);
+
+  transition: all 0.3s ease;
+
+  z-index: 9999;
+}
+
+.scroll-top-btn.show {
+
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+
+  transform: scale(1.08);
+
+  background: var(--azul-secundario);
+}

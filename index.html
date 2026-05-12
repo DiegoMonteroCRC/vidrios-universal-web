@@ -38,10 +38,10 @@
     content="Especialistas en vidrio, espejos y aluminio con más de 30 años de experiencia."
   />
 
-  <meta
-    property="og:image"
-    content="assets/img/portada/portada.jpg"
-  />
+<meta
+  property="og:image"
+  content="https://diegomonterocrc.github.io/vidrios-universal-web/assets/img/portada/portada.jpg"
+/>
 
   <meta
     property="og:type"
@@ -63,6 +63,9 @@
 
 </head>
 <body class="dark-mode">
+  <div id="loader" class="loader">
+  <img src="assets/img/logos/LOGO SOLO AZUL.PNG" alt="Vidrios y Espejos Universal">
+</div>
 
   <header class="header">
     <nav class="navbar">
@@ -72,9 +75,10 @@
   class="logo"
   id="main-logo"
 >
-
-      <ul class="nav-links">
-        
+<button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+  ☰
+</button>
+      <ul class="nav-links" id="nav-links">        
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#nosotros">Nosotros</a></li>
         <li><a href="#productos">Productos</a></li>
@@ -198,10 +202,10 @@
       <button class="filter-btn active" data-filter="todos">Todos</button>
       <button class="filter-btn" data-filter="enmarcados">Enmarcados</button>
       <button class="filter-btn" data-filter="espejos">Espejos</button>
-      <button class="filter-btn" data-filter="fachadas">Fachadas</button>
-      <button class="filter-btn" data-filter="puerta-feel">Puerta Feel</button>
-      <button class="filter-btn" data-filter="puertas">Puertas</button>
       <button class="filter-btn" data-filter="puertas-bano">Puertas de baño</button>
+      <button class="filter-btn" data-filter="puerta-feel">Puerta Feel</button>
+      <button class="filter-btn" data-filter="fachadas">Fachadas</button>
+      <button class="filter-btn" data-filter="puertas">Puertas</button>
       <button class="filter-btn" data-filter="urnas">Urnas</button>
       <button class="filter-btn" data-filter="ventanas">Ventanas</button>
     </div>
@@ -209,7 +213,7 @@
 <div class="gallery-grid">
 
   <div class="gallery-item enmarcados">
-    <img src="assets/img/galeria/enmarcados/Acabado enmarcado.jpeg" alt="Acabado enmarcado">
+    <img src="assets/img/galeria/enmarcados/Acabado-enmarcado.webp" alt="Acabado enmarcado" loading="lazy">
 
     <div class="gallery-caption">
       <h3>Acabado enmarcado</h3>
@@ -218,7 +222,7 @@
   </div>
 
   <div class="gallery-item enmarcados">
-    <img src="assets/img/galeria/enmarcados/Color de molduras.jpeg" alt="Color de molduras">
+    <img src="assets/img/galeria/enmarcados/Color-de-molduras.webp" alt="Color de molduras" loading="lazy">
 
     <div class="gallery-caption">
       <h3>Color de molduras</h3>
@@ -227,7 +231,7 @@
   </div>
 
   <div class="gallery-item enmarcados">
-    <img src="assets/img/galeria/enmarcados/Enmarcado espejo de fondo.jpeg" alt="Enmarcado espejo de fondo">
+    <img src="assets/img/galeria/enmarcados/Enmarcado-espejo-de-fondo.webp" alt="Enmarcado espejo de fondo" loading="lazy">
 
     <div class="gallery-caption">
       <h3>Enmarcado espejo de fondo</h3>
@@ -236,7 +240,7 @@
   </div>
 
   <div class="gallery-item espejos">
-    <img src="assets/img/galeria/espejos/Rectangular con bisel 1 pulgada.jpg" alt="Espejo rectangular con bisel">
+    <img src="assets/img/galeria/espejos/Rectangular-con-bisel-1-pulgada.webp" alt="Espejo rectangular con bisel" loading="lazy">
 
     <div class="gallery-caption">
       <h3>Espejo rectangular con bisel</h3>
@@ -245,7 +249,7 @@
   </div>
 
   <div class="gallery-item espejos">
-    <img src="assets/img/galeria/espejos/Diámetro con bisel 1 pulgada.jpg" alt="Espejo circular con bisel">
+    <img src="assets/img/galeria/espejos/Diámetro-con-bisel-1-pulgada.webp" alt="Espejo circular con bisel" loading="lazy">
 
     <div class="gallery-caption">
       <h3>Espejo circular con bisel</h3>
@@ -254,7 +258,7 @@
   </div>
 
   <div class="gallery-item espejos">
-    <img src="assets/img/galeria/espejos/Instalacion de espejos.jpeg" alt="Instalación de espejos">
+    <img src="assets/img/galeria/espejos/Instalacion-de-espejos.webp" alt="Instalación de espejos" loading="lazy">
 
     <div class="gallery-caption">
       <h3>Instalación de espejos</h3>
@@ -262,8 +266,71 @@
     </div>
   </div>
 
+  <div class="gallery-item puerta-feel">
+    <img src="assets/img/galeria/puerta-feel/Feel-Slide.webp" alt="Puerta Feel Slide" loading="lazy">
+
+    <div class="gallery-caption">
+      <h3>Feel Slide</h3>
+      <p>Sistema corredizo moderno con diseño minimalista.</p>
+    </div>
+  </div>
+
+      <div class="gallery-item puerta-feel">
+    <img src="assets/img/galeria/puerta-feel/Feel-Slide-en-escuadra.webp" alt="Feel slide en escuadra" loading="lazy">
+
+    <div class="gallery-caption">
+      <h3>Feel Slide en escuadra</h3>
+      <p>Sistema corredizo en escuadra moderno con diseño minimalista.</p>
+    </div>
+    </div>
+
+  <div class="gallery-item puerta-feel">
+    <img src="assets/img/galeria/puerta-feel/Feel-slide-con-arenado1.webp" alt="Feel slide con arenado" loading="lazy">
+
+    <div class="gallery-caption">
+      <h3>Feel slide con arenado</h3>
+      <p>Sistema corredizo con acabados en arenado para un estilo moderno.</p>
+    </div>
+  </div>
+
+    <div class="gallery-item puerta-feel">
+    <img src="assets/img/galeria/puerta-feel/Feel-abatible.webp" alt="Feel abatible" loading="lazy">
+
+    <div class="gallery-caption">
+      <h3>Feel abatible</h3>
+      <p>Sistema abatible moderno con mampara fija y puerta abatible de doble acción.</p>
+    </div>
+  </div>
+
+  <div class="gallery-item puerta-feel">
+    <img src="assets/img/galeria/puerta-feel/Mampara-recta.webp" alt="Mampara recta" loading="lazy">
+
+    <div class="gallery-caption">
+      <h3>Mampara recta</h3>
+      <p>Mamparas elegantes para baños modernos y funcionales.</p>
+    </div>
+  </div>
+
+    <div class="gallery-item puerta-feel">
+    <img src="assets/img/galeria/puerta-feel/Mampara-areanada.webp" alt="Mampara areanada" loading="lazy">
+
+    <div class="gallery-caption">
+      <h3>Mampara areanada</h3>
+      <p>Mamparas con elegantes acabados en areando.</p>
+    </div>
+  </div>
+
+    <div class="gallery-item puerta-feel">
+    <img src="assets/img/galeria/puerta-feel/Acabados-Sanblasting.webp" alt="Acabados Sanblasting" loading="lazy">
+
+    <div class="gallery-caption">
+      <h3>Acabados Sanblasting</h3>
+      <p>Acabados de alta calidad a gusto y medida de para cada cliente.</p>
+    </div>
+  </div>
+
   <div class="gallery-item fachadas">
-    <img src="assets/img/galeria/fachadas/Fachada puerta lujo.jpeg" alt="Fachada puerta lujo">
+    <img src="assets/img/galeria/fachadas/Fachada-puerta-lujo.webp" alt="Fachada puerta lujo" loading="lazy">
 
     <div class="gallery-caption">
       <h3>Fachada puerta lujo</h3>
@@ -272,7 +339,7 @@
   </div>
 
   <div class="gallery-item fachadas">
-    <img src="assets/img/galeria/fachadas/Fachada puerta corrediza.jpeg" alt="Fachada puerta corrediza">
+    <img src="assets/img/galeria/fachadas/Fachada-puerta-corrediza.webp" alt="Fachada puerta corrediza" loading="lazy">
 
     <div class="gallery-caption">
       <h3>Fachada puerta corrediza</h3>
@@ -281,7 +348,7 @@
   </div>
 
   <div class="gallery-item fachadas">
-    <img src="assets/img/galeria/fachadas/Fachada.jpg" alt="Fachada comercial">
+    <img src="assets/img/galeria/fachadas/fachadas-comerciales.webp" alt="Fachada comercial" loading="lazy">
 
     <div class="gallery-caption">
       <h3>Fachada comercial</h3>
@@ -289,35 +356,17 @@
     </div>
   </div>
 
-  <div class="gallery-item puerta-feel">
-    <img src="assets/img/galeria/puerta-feel/Feel Slide.jpeg" alt="Puerta Feel Slide">
+  <div class="gallery-item puertas">
+    <img src="assets/img/galeria/puertas/puerta-lujo-abatible.webp" alt="Puerta lujo abatible" loading="lazy">
 
     <div class="gallery-caption">
-      <h3>Feel Slide</h3>
-      <p>Sistema corredizo moderno con diseño minimalista.</p>
-    </div>
-  </div>
-
-  <div class="gallery-item puerta-feel">
-    <img src="assets/img/galeria/puerta-feel/Mampara recta.jpg" alt="Mampara recta">
-
-    <div class="gallery-caption">
-      <h3>Mampara recta</h3>
-      <p>Mamparas elegantes para baños modernos y funcionales.</p>
+      <h3>Puerta lujo abatible</h3>
+      <p>Ideal para alto tráfico y espacios exigentes.</p>
     </div>
   </div>
 
   <div class="gallery-item puertas">
-    <img src="assets/img/galeria/puertas/Puerta corrediza cuatro hojas.jpg" alt="Puerta corrediza cuatro hojas">
-
-    <div class="gallery-caption">
-      <h3>Puerta corrediza cuatro hojas</h3>
-      <p>Ideal para aperturas amplias y excelente iluminación natural.</p>
-    </div>
-  </div>
-
-  <div class="gallery-item puertas">
-    <img src="assets/img/galeria/puertas/Puerta corrediza doble hoja.jpg" alt="Puerta corrediza doble hoja">
+    <img src="assets/img/galeria/puertas/Puerta-corrediza-doble-hoja.webp" alt="Puerta corrediza doble hoja" loading="lazy">
 
     <div class="gallery-caption">
       <h3>Puerta corrediza doble hoja</h3>
@@ -325,8 +374,17 @@
     </div>
   </div>
 
+    <div class="gallery-item puertas">
+    <img src="assets/img/galeria/puertas/Puerta-aerea.webp" alt="Puerta aérea" loading="lazy">
+
+    <div class="gallery-caption">
+      <h3>Puerta aérea</h3>
+      <p>Diseño versátil y funcional para espacios compactos.</p>
+    </div>
+  </div>
+
   <div class="gallery-item puertas-bano">
-    <img src="assets/img/galeria/puertas-bano/Oceano en escuadra.jpg" alt="Puerta de baño en escuadra">
+    <img src="assets/img/galeria/puertas-bano/Oceano en escuadra.jpg" alt="Puerta de baño en escuadra" loading="lazy">
 
     <div class="gallery-caption">
       <h3>Océano en escuadra</h3>
@@ -335,7 +393,7 @@
   </div>
 
   <div class="gallery-item puertas-bano">
-    <img src="assets/img/galeria/puertas-bano/Puerta Oceano.jpg" alt="Puerta de baño océano">
+    <img src="assets/img/galeria/puertas-bano/Puerta Oceano.jpg" alt="Puerta de baño océano" loading="lazy">
 
     <div class="gallery-caption">
       <h3>Puerta Océano</h3>
@@ -344,7 +402,7 @@
   </div>
 
   <div class="gallery-item urnas">
-    <img src="assets/img/galeria/urnas/Vitrina aluminio natural.jpg" alt="Vitrina aluminio natural">
+    <img src="assets/img/galeria/urnas/Vitrina aluminio natural.jpg" alt="Vitrina aluminio natural" loading="lazy">
 
     <div class="gallery-caption">
       <h3>Vitrina aluminio natural</h3>
@@ -353,7 +411,7 @@
   </div>
 
   <div class="gallery-item urnas">
-    <img src="assets/img/galeria/urnas/Vitrina aluminio negro.jpg" alt="Vitrina aluminio negro">
+    <img src="assets/img/galeria/urnas/Vitrina aluminio negro.jpg" alt="Vitrina aluminio negro" loading="lazy">
 
     <div class="gallery-caption">
       <h3>Vitrina aluminio negro</h3>
@@ -362,7 +420,7 @@
   </div>
 
   <div class="gallery-item ventanas">
-    <img src="assets/img/galeria/ventanas/Panel fijo.jpg" alt="Panel fijo">
+    <img src="assets/img/galeria/ventanas/Panel fijo.jpg" alt="Panel fijo" loading="lazy">
 
     <div class="gallery-caption">
       <h3>Panel fijo</h3>
@@ -371,7 +429,7 @@
   </div>
 
   <div class="gallery-item ventanas">
-    <img src="assets/img/galeria/ventanas/Ventana corrediza.jpg" alt="Ventana corrediza">
+    <img src="assets/img/galeria/ventanas/Ventana corrediza.jpg" alt="Ventana corrediza" loading="lazy">
 
     <div class="gallery-caption">
       <h3>Ventana corrediza</h3>
@@ -436,11 +494,31 @@
 </button>
 
 <div id="imageModal" class="image-modal">
+
   <span class="modal-close">&times;</span>
+
+  <button class="modal-nav modal-prev">
+    ❮
+  </button>
+
   <img id="modalImage" src="" alt="Imagen ampliada">
+
+  <button class="modal-nav modal-next">
+    ❯
+  </button>
+
   <div id="modalCaption" class="modal-caption"></div>
+
 </div>
 
+<a
+  href="https://wa.me/50662459472"
+  target="_blank"
+  class="whatsapp-float"
+  aria-label="Contactar por WhatsApp"
+>
+  ✆
+</a>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -32,27 +32,28 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* =========================
-   NAVBAR DINÁMICA
+   NAVBAR DINÁMICA CORREGIDA
 ========================= */
 
 const header = document.querySelector(".header");
 const logo = document.getElementById("main-logo");
 
+let navbarCompacta = false;
+
 window.addEventListener("scroll", () => {
+  const scrollActual = window.scrollY;
 
-  if (window.scrollY > 80) {
-
+  if (scrollActual > 120 && !navbarCompacta) {
     header.classList.add("scrolled");
-
     logo.src = "assets/img/logos/LOGO SOLO AZUL.PNG";
-
-  } else {
-
-    header.classList.remove("scrolled");
-
-    logo.src = "assets/img/logos/LOGO COMPLETO AZUL.PNG";
+    navbarCompacta = true;
   }
 
+  if (scrollActual < 40 && navbarCompacta) {
+    header.classList.remove("scrolled");
+    logo.src = "assets/img/logos/LOGO COMPLETO AZUL.PNG";
+    navbarCompacta = false;
+  }
 });
 
 /* =========================
@@ -108,33 +109,169 @@ filterButtons.forEach((button) => {
 });
 
 /* =========================
-   MODAL GALERÍA
+   LIGHTBOX PREMIUM
 ========================= */
 
 const modal = document.getElementById("imageModal");
 const modalImage = document.getElementById("modalImage");
 const modalCaption = document.getElementById("modalCaption");
+
 const modalClose = document.querySelector(".modal-close");
 
-galleryItems.forEach((item) => {
-  item.addEventListener("click", () => {
-    const img = item.querySelector("img");
-    const title = item.querySelector(".gallery-caption h3")?.textContent || img.alt;
-    const description = item.querySelector(".gallery-caption p")?.textContent || "";
+const prevButton = document.querySelector(".modal-prev");
+const nextButton = document.querySelector(".modal-next");
 
-    modalImage.src = img.src;
-    modalImage.alt = img.alt;
-    modalCaption.innerHTML = `<strong>${title}</strong><br>${description}`;
-    modal.classList.add("show");
+const galleryImages = document.querySelectorAll(".gallery-item");
+
+let currentIndex = 0;
+
+function openModal(index) {
+
+  currentIndex = index;
+
+  const item = galleryImages[index];
+
+  const img = item.querySelector("img");
+
+  const title =
+    item.querySelector(".gallery-caption h3")?.textContent || "";
+
+  const description =
+    item.querySelector(".gallery-caption p")?.textContent || "";
+
+  modalImage.src = img.src;
+
+  modalCaption.innerHTML = `
+    <strong>${title}</strong><br>
+    ${description}
+  `;
+
+  modal.classList.add("show");
+}
+
+galleryImages.forEach((item, index) => {
+
+  item.addEventListener("click", () => {
+    openModal(index);
   });
+
 });
+
+function showNext() {
+
+  currentIndex++;
+
+  if (currentIndex >= galleryImages.length) {
+    currentIndex = 0;
+  }
+
+  openModal(currentIndex);
+}
+
+function showPrev() {
+
+  currentIndex--;
+
+  if (currentIndex < 0) {
+    currentIndex = galleryImages.length - 1;
+  }
+
+  openModal(currentIndex);
+}
+
+nextButton.addEventListener("click", showNext);
+
+prevButton.addEventListener("click", showPrev);
 
 modalClose.addEventListener("click", () => {
   modal.classList.remove("show");
 });
 
 modal.addEventListener("click", (event) => {
+
   if (event.target === modal) {
     modal.classList.remove("show");
   }
+
 });
+
+/* Teclado */
+
+document.addEventListener("keydown", (event) => {
+
+  if (!modal.classList.contains("show")) return;
+
+  if (event.key === "Escape") {
+    modal.classList.remove("show");
+  }
+
+  if (event.key === "ArrowRight") {
+    showNext();
+  }
+
+  if (event.key === "ArrowLeft") {
+    showPrev();
+  }
+
+});
+
+/* =========================
+   ANIMACIONES AL HACER SCROLL
+========================= */
+
+const revealElements = document.querySelectorAll(
+  ".section, .card, .service-card, .gallery-item, .video-social-box"
+);
+
+revealElements.forEach((element) => {
+  element.classList.add("reveal");
+});
+
+function revealOnScroll() {
+  revealElements.forEach((element) => {
+    const windowHeight = window.innerHeight;
+    const elementTop = element.getBoundingClientRect().top;
+    const revealPoint = 120;
+
+    if (elementTop < windowHeight - revealPoint) {
+      element.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
+
+/* =========================
+   LOADER INICIAL
+========================= */
+
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+
+  setTimeout(() => {
+    loader.classList.add("hide");
+  }, 700);
+});
+
+/* =========================
+   MENÚ MÓVIL
+========================= */
+
+const menuToggle = document.getElementById("menu-toggle");
+const navLinksMenu = document.getElementById("nav-links");
+
+if (menuToggle && navLinksMenu) {
+  menuToggle.addEventListener("click", () => {
+    navLinksMenu.classList.toggle("show");
+
+    menuToggle.textContent = navLinksMenu.classList.contains("show") ? "×" : "☰";
+  });
+
+  navLinksMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinksMenu.classList.remove("show");
+      menuToggle.textContent = "☰";
+    });
+  });
+}

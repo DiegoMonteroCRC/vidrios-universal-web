@@ -2,7 +2,7 @@
 
 # Vidrios y Espejos Universal
 
-Sitio web corporativo desarrollado para **Vidrios y Espejos Universal**, empresa especializada en vidrio, espejos y aluminio con más de 30 años de experiencia en Costa Rica.
+Proyecto personal para un emprendimiento familiar. He tratado de integrar diferentes herramientas nuevas para mi, donde poco a poco iré puliendo y mejorando la web
 
 Sitio web en producción:
 https://vidriosuniversal.com

@@ -275,3 +275,59 @@ if (menuToggle && navLinksMenu) {
     });
   });
 }
+
+/* =========================
+   TRACKING ANALYTICS
+========================= */
+
+function trackEvent(eventName, source) {
+  if (typeof gtag === "function") {
+    gtag("event", eventName, {
+      source: source
+    });
+
+    console.log("Evento enviado:", eventName, source);
+  }
+}
+
+/* WhatsApp */
+
+document.getElementById("wa-hero")?.addEventListener("click", () => {
+  trackEvent("whatsapp_click", "hero");
+});
+
+document.getElementById("wa-contact")?.addEventListener("click", () => {
+  trackEvent("whatsapp_click", "contact_section");
+});
+
+document.getElementById("wa-float")?.addEventListener("click", () => {
+  trackEvent("whatsapp_click", "float_button");
+});
+
+/* Redes sociales - Contacto */
+
+document.getElementById("instagram-btn")?.addEventListener("click", () => {
+  trackEvent("instagram_click", "contact_section");
+});
+
+document.getElementById("facebook-btn")?.addEventListener("click", () => {
+  trackEvent("facebook_click", "contact_section");
+});
+
+document.getElementById("tiktok-btn")?.addEventListener("click", () => {
+  trackEvent("tiktok_click", "contact_section");
+});
+
+/* Redes sociales - Sección de videos */
+
+document.getElementById("instagram-video-btn")?.addEventListener("click", () => {
+  trackEvent("instagram_click", "video_section");
+});
+
+document.getElementById("facebook-video-btn")?.addEventListener("click", () => {
+  trackEvent("facebook_click", "video_section");
+});
+
+document.getElementById("tiktok-video-btn")?.addEventListener("click", () => {
+  trackEvent("tiktok_click", "video_section");
+});

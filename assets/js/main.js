@@ -32,29 +32,43 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* =========================
-   NAVBAR DINÁMICA CORREGIDA
+   NAVBAR DINÁMICA ESTABLE
 ========================= */
 
 const header = document.querySelector(".header");
 const logo = document.getElementById("main-logo");
 
+const logoCompleto = "assets/img/logos/LOGO COMPLETO AZUL.PNG";
+const logoSolo = "assets/img/logos/LOGO SOLO AZUL.PNG";
+
 let navbarCompacta = false;
 
-window.addEventListener("scroll", () => {
+function actualizarNavbar() {
   const scrollActual = window.scrollY;
 
-  if (scrollActual > 120 && !navbarCompacta) {
+  if (scrollActual > 180 && !navbarCompacta) {
     header.classList.add("scrolled");
-    logo.src = "assets/img/logos/LOGO SOLO AZUL.PNG";
+
+    if (logo.getAttribute("src") !== logoSolo) {
+      logo.setAttribute("src", logoSolo);
+    }
+
     navbarCompacta = true;
   }
 
-  if (scrollActual < 40 && navbarCompacta) {
+  if (scrollActual < 20 && navbarCompacta) {
     header.classList.remove("scrolled");
-    logo.src = "assets/img/logos/LOGO COMPLETO AZUL.PNG";
+
+    if (logo.getAttribute("src") !== logoCompleto) {
+      logo.setAttribute("src", logoCompleto);
+    }
+
     navbarCompacta = false;
   }
-});
+}
+
+window.addEventListener("scroll", actualizarNavbar);
+window.addEventListener("load", actualizarNavbar);
 
 /* =========================
    BOTÓN VOLVER ARRIBA
@@ -275,3 +289,60 @@ if (menuToggle && navLinksMenu) {
     });
   });
 }
+
+/* =========================
+   TRACKING ANALYTICS
+========================= */
+
+function trackEvent(eventName, source) {
+  if (typeof gtag === "function") {
+    gtag("event", eventName, {
+      source: source
+    });
+
+    console.log("Evento enviado:", eventName, source);
+  }
+}
+
+/* WhatsApp */
+
+document.getElementById("wa-hero")?.addEventListener("click", () => {
+  trackEvent("whatsapp_click", "hero");
+});
+
+document.getElementById("wa-contact")?.addEventListener("click", () => {
+  trackEvent("whatsapp_click", "contact_section");
+});
+
+document.getElementById("wa-float")?.addEventListener("click", () => {
+  trackEvent("whatsapp_click", "float_button");
+});
+
+/* Redes sociales - Contacto */
+
+document.getElementById("instagram-btn")?.addEventListener("click", () => {
+  trackEvent("instagram_click", "contact_section");
+});
+
+document.getElementById("facebook-btn")?.addEventListener("click", () => {
+  trackEvent("facebook_click", "contact_section");
+});
+
+document.getElementById("tiktok-btn")?.addEventListener("click", () => {
+  trackEvent("tiktok_click", "contact_section");
+});
+
+/* Redes sociales - Sección de videos */
+
+document.getElementById("instagram-video-btn")?.addEventListener("click", () => {
+  trackEvent("instagram_click", "video_section");
+});
+
+document.getElementById("facebook-video-btn")?.addEventListener("click", () => {
+  trackEvent("facebook_click", "video_section");
+});
+
+document.getElementById("tiktok-video-btn")?.addEventListener("click", () => {
+  trackEvent("tiktok_click", "video_section");
+});
+

@@ -1256,3 +1256,14 @@ body.light-mode .product-pill {
   }
 }
 
+.header {
+  min-height: 82px;
+}
+
+.header.scrolled {
+  min-height: 58px;
+}
+
+.logo {
+  object-fit: contain;
+}

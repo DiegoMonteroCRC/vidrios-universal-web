@@ -32,29 +32,43 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* =========================
-   NAVBAR DINÁMICA CORREGIDA
+   NAVBAR DINÁMICA ESTABLE
 ========================= */
 
 const header = document.querySelector(".header");
 const logo = document.getElementById("main-logo");
 
+const logoCompleto = "assets/img/logos/LOGO COMPLETO AZUL.PNG";
+const logoSolo = "assets/img/logos/LOGO SOLO AZUL.PNG";
+
 let navbarCompacta = false;
 
-window.addEventListener("scroll", () => {
+function actualizarNavbar() {
   const scrollActual = window.scrollY;
 
-  if (scrollActual > 120 && !navbarCompacta) {
+  if (scrollActual > 180 && !navbarCompacta) {
     header.classList.add("scrolled");
-    logo.src = "assets/img/logos/LOGO SOLO AZUL.PNG";
+
+    if (logo.getAttribute("src") !== logoSolo) {
+      logo.setAttribute("src", logoSolo);
+    }
+
     navbarCompacta = true;
   }
 
-  if (scrollActual < 40 && navbarCompacta) {
+  if (scrollActual < 20 && navbarCompacta) {
     header.classList.remove("scrolled");
-    logo.src = "assets/img/logos/LOGO COMPLETO AZUL.PNG";
+
+    if (logo.getAttribute("src") !== logoCompleto) {
+      logo.setAttribute("src", logoCompleto);
+    }
+
     navbarCompacta = false;
   }
-});
+}
+
+window.addEventListener("scroll", actualizarNavbar);
+window.addEventListener("load", actualizarNavbar);
 
 /* =========================
    BOTÓN VOLVER ARRIBA
@@ -331,3 +345,4 @@ document.getElementById("facebook-video-btn")?.addEventListener("click", () => {
 document.getElementById("tiktok-video-btn")?.addEventListener("click", () => {
   trackEvent("tiktok_click", "video_section");
 });
+
